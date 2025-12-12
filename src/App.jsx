@@ -2,7 +2,7 @@ import { useState,useRef  } from 'react'
 import './assets/todolist.scss'
 import './app.scss'
 
-import Hello from './components/demo'
+//import Hello from './components/demo'
 import {TodoList} from './components/todolist'
 // App.js
 import { toast,ToastContainer } from 'react-toastify';
