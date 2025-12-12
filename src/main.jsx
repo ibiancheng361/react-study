@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 
 import 'react-toastify/dist/ReactToastify.css';
 import './index.scss'
-import App from './App.jsx'
+import App from './app.jsx'
 
 
 /*
