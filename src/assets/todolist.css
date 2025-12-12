@@ -1,0 +1,29 @@
+
+
+
+
+
+.todo-container{
+    width:100%;
+}
+
+.todo-footer-section{
+    width:100%;
+}
+
+
+
+.todo-footer-section{
+    width:100%;
+}
+
+.footer-row{
+    display: flex;
+}
+
+.todo-footer-section .footer-row-left{
+    display: flex;
+}
+.todo-footer-section .footer-row-right{
+    display: flex;
+}

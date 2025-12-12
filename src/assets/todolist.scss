@@ -1,0 +1,78 @@
+
+
+
+
+$task-row-action-width:230px;
+
+
+.todolist-container{
+    width:100%;
+    .todo-header-section{
+        padding:10px 0;
+        border-bottom:1px solid #ededed;
+        display: flex;
+        .task-num{
+            width:80px;display:flex;align-items: center;justify-content: center;
+        }
+        .task-detail{
+            width:calc(100% - 80px - $task-row-action-width);
+            text-align: center;
+        }
+        
+        .task-action{
+            width:$task-row-action-width;
+            text-align: center;
+        }
+    }
+
+    .todo-body-section{
+        padding:10px 0;
+        .task-row{
+            margin:5px 0;
+            display:flex;
+            >.task-num{width:80px;display:flex;align-items: center;justify-content: center;}
+            >.task-detail{width:calc(100% - 180px - $task-row-action-width);display:flex;align-items: center;}
+            >.task-state{width:100px;display:flex;align-items: center;justify-content: center;
+            
+            // 进行中的任务状态颜色
+            &.state0 {
+                color: #3b82f6; // 蓝色 - 表示正在进行
+            }
+            
+            // 已完成的任务状态颜色
+            &.state1 {
+                color: #10b981; // 绿色 - 表示已完成
+            }
+            }
+            >.task-action{
+                width:$task-row-action-width;
+                display:flex;
+                align-items: center;
+            }
+        } 
+    }
+
+    .todo-footer-section{
+        padding:10px 0;
+        width:100%; 
+        border-top:1px solid #ededed;
+        display: flex;
+        .task-detail{
+            width:calc(100% - $task-row-action-width - 10px);
+            .task{
+                width:calc(100% - 25px);
+                height:28px;
+                display:flex;
+                align-items: center;
+            }
+        }
+        
+        .task-action{
+            width:$task-row-action-width;
+            display: flex;
+        }
+    }
+}
+
+
+
