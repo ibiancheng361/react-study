@@ -1,7 +1,11 @@
 import { useState,useRef  } from 'react'
 import './assets/todolist.scss'
+import './app.scss'
+
 import Hello from './components/demo'
-import {TodoList,TodoItem} from './components/todolist'
+import {TodoList} from './components/todolist'
+// App.js
+import { toast,ToastContainer } from 'react-toastify';
 
 // import {uuid} from './common/utils';
 function App() {
@@ -11,22 +15,25 @@ function App() {
   const [taskId, setTaskId] = useState(1);
   const [editId, setEditId] = useState(0);
 
+
   const handleClick = () => {
-    const value = taskRef.current?.value.trim();
-    if (!value) return;
-    console.log();
+    const task = taskRef.current?.value.trim();
+    if (task.length==0){
+      toast.warning('任务内容不可为空！');
+      return;
+    }
+
     if (editId>0) {
-      setTaskList(prev =>
-        prev.map(item =>
-          item.id === editId ? { ...item, task: value } : item
+      setTaskList(taskList =>
+        taskList.map(item =>
+          item.id === editId ? { ...item, task } : item
         )
       );
       setEditId(0);
     } else {
-      setTaskList(prev => [...prev, { id: taskId, task: value, state: 0 }]);
-      setTaskId(prev => prev + 1);
+      setTaskList(taskList => [...taskList, { id: taskId, task, state: 0 }]);
+      setTaskId(taskId => taskId + 1);
     }
-
     taskRef.current.value = ''; // 清空输入框
   };
 
@@ -76,10 +83,12 @@ function App() {
               >
                 {editId > 0 ? '更新' : '添加'}
               </button>
+
             </div>
           </div>
         </div>
       </div>
+      <ToastContainer position="top-center" theme="dark" autoClose={3500} newestOnTop={false} closeButton ={false} closeOnClick={false} hideProgressBar={true} pauseOnFocusLoss draggable={false}/>
     </>
   );
 }

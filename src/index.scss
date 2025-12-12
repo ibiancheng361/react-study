@@ -37,7 +37,8 @@ button {
   background-color: #646cff; /* 主题蓝色 */
   color: white; /* 文字颜色设为白色以确保可读性 */
   transition: all 0.25s ease; /* 添加更完整的过渡效果 */
-cursor: pointer;
+  cursor: pointer;
+  outline:none;
 }
 /* 悬停状态 */
 button:hover {
@@ -48,8 +49,7 @@ button:hover {
 /* 焦点状态 */
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-  outline-offset: 2px;
+  outline:none;
 }
 
 
@@ -79,4 +79,14 @@ input[type="text"]{
   a:hover {
     color: #747bff;
   }
+}
+
+
+#app .Toastify__toast-icon {
+  width: 20px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 可选：微调垂直位置 */
+  transform: translateY(-1px); 
 }
