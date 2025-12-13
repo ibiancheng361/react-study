@@ -1,7 +1,7 @@
 import { useState,useRef  } from 'react'
 import './assets/todolist.scss'
-import Hello from './components/demo'
-import {TodoList,TodoItem} from './components/todolist'
+import Hello from '../src/components/demo'
+import {TodoList,TodoItem} from '../src/components/todolist'
 
 // import {uuid} from './common/utils';
 function App() {

@@ -3,7 +3,7 @@ import './assets/todolist.scss'
 import './app.scss'
 
 //import Hello from './components/demo'
-import {TodoList} from './components/todolist'
+import {TodoList} from '../src/components/todolist'
 // App11.js
 import { toast,ToastContainer } from 'react-toastify';
 
