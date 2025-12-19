@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './index.scss'
 import App from './app.jsx'
 
+
 /*
 StrictMode,就是因为app被StrictMode包裹,所以在开发模式下会被渲染两次?
 StrictMode是什么意思,有什么用?

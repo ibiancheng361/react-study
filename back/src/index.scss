@@ -1,0 +1,92 @@
+$base-font-family:"microsoft yahei";
+$base-font-size:16px;
+$base-font-color:#333;
+
+*{margin:0;padding:0}
+html{font-size:16px;}
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  color:$base-font-color;
+  font-size:$base-font-size;
+  font-family:$base-font-family;
+  background-color:#f5f6f7;
+}
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  margin:0 0.35em;
+  padding: 0.6em 1.2em;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  font-weight: 500;
+  background-color: #1a1a1a;
+  transition: border-color 0.25s;
+  background-color: #646cff; /* 主题蓝色 */
+  color: white; /* 文字颜色设为白色以确保可读性 */
+  transition: all 0.25s ease; /* 添加更完整的过渡效果 */
+  cursor: pointer;
+  outline:none;
+}
+/* 悬停状态 */
+button:hover {
+  background-color: #535bf2; /* 深一点的蓝色 */
+  border-color: #535bf2;
+}
+
+/* 焦点状态 */
+button:focus,
+button:focus-visible {
+  outline:none;
+}
+
+
+input[type="text"]{
+  padding:3px 7px;
+  background-color:hsl(248 4.76% 95.88%);
+  border:none;border-radius: 5px;
+  outline:none;
+  font-size:16px;
+  font-family:$base-font-family;
+}
+
+#app{
+  margin:0 auto;
+  padding:15px;
+  width:1000px;
+  background-color:#fff;
+
+}
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+}
+
+
+#app .Toastify__toast-icon {
+  width: 20px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 可选：微调垂直位置 */
+  transform: translateY(-1px); 
+}

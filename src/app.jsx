@@ -1,95 +1,51 @@
-import { useState,useRef  } from 'react'
-import './assets/todolist.scss'
+import { lazy } from 'react';
 import './app.scss'
 
-//import Hello from './components/demo'
-import {TodoList} from './components/todolist'
-// App11.js
-import { toast,ToastContainer } from 'react-toastify';
 
-// import {uuid} from './common/utils';
-function App() {
-  const tid = useRef(0);
-  const taskRef = useRef();
-  const [taskList, setTaskList] = useState([]);
-  const [taskId, setTaskId] = useState(1);
-  const [editId, setEditId] = useState(0);
+// import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Outlet, Link,NavLink } from 'react-router-dom';
 
 
-  const handleClick = () => {
-    const task = taskRef.current?.value.trim();
-    if (task.length==0){
-      toast.warning('任务内容不可为空！');
-      return;
-    }
+const About = lazy(()=>import('./pages/about'));
+const Home = lazy(()=>import('./pages/home'));
+const Concat = lazy(()=>import('./pages/concat'));
+const Two = lazy(()=>import('./pages/two'));
+const TodoList = lazy(()=>import('./pages/todolist'));
+const NotFound = lazy(()=>import('./pages/404'));
 
-    if (editId>0) {
-      setTaskList(taskList =>
-        taskList.map(item =>
-          item.id === editId ? { ...item, task } : item
-        )
-      );
-      setEditId(0);
-    } else {
-      setTaskList(taskList => [...taskList, { id: taskId, task, state: 0 }]);
-      setTaskId(taskId => taskId + 1);
-    }
-    taskRef.current.value = ''; // 清空输入框
-  };
-
-  const handleEditTask = (task) => {
-    setEditId(task.id);
-    taskRef.current.value = task.task;
-    taskRef.current.focus();
-  };
-
-  const handleDeleteTask = (task) => {
-    setTaskList(prev => prev.filter(item => item.id !== task.id));
-  };
-
-  const handleCompleteTask = (task) => {
-    setTaskList(prev =>
-      prev.map(item =>
-        item.id === task.id ? { ...item, state: 1 } : item
-      )
-    );
-  };
-
+// 布局组件
+function Layout() {
   return (
-    <>
-      <div className="page">
-        <TodoList 
-          taskList={taskList} 
-          onEditTask={handleEditTask} 
-          onCompleteTask={handleCompleteTask} 
-          onDeleteTask={handleDeleteTask} 
-        />
+    <div>
+      <nav className="menu">
+        <NavLink className="menu-item" to="/">首页</NavLink> | 
+        <NavLink className="menu-item" to="/about">关于</NavLink> | 
+        <NavLink className="menu-item" to="/two/*">多级路由</NavLink> | 
+        <NavLink className="menu-item" to="/concat">联系</NavLink> | 
+        <NavLink className="menu-item" to="/todolist">todolist</NavLink>
+      </nav>
 
-        <div className='todolist-container'>
-          <div className="todo-footer-section"> 
-            <div className="task-detail">
-              <input 
-                type="text" 
-                className="task" 
-                ref={taskRef} 
-                // 非受控，无需 value/onBlur
-              />  
-            </div>
-            <div className="task-action">
-              <button 
-                type="button" 
-                className="add-btn" 
-                onClick={handleClick}
-              >
-                {editId > 0 ? '更新' : '添加'}
-              </button>
+      {/* 子路由会渲染在这里 */}
+      <Outlet /> 
+    </div>
+  );
+}
 
-            </div>
-          </div>
-        </div>
-      </div>
-      <ToastContainer position="top-center" theme="dark" autoClose={3500} newestOnTop={false} closeButton ={false} closeOnClick={false} hideProgressBar={true} pauseOnFocusLoss draggable={false}/>
-    </>
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        {/* 所有页面共享 Layout */}
+        <Route path="/*" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="concat" element={<Concat />} />
+          <Route path="two/*" element={<Two />} />
+          <Route path="todolist" element={<TodoList />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
