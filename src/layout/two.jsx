@@ -14,16 +14,18 @@ function Two(){
             </div>
             <div>
                 <nav className="menu">
-                    <NavLink className="menu-item" to="a">page-A</NavLink> | 
-                    <NavLink className="menu-item" to="b">page-B</NavLink> | 
-                    <NavLink className="menu-item" to="c">page-C</NavLink>
+                    <NavLink className="menu-item" to="/two/a">page-A</NavLink> | 
+                    <NavLink className="menu-item" to="/two/b">page-B</NavLink> | 
+                    <NavLink className="menu-item" to="/two/c">page-C</NavLink>
                 </nav>
             </div>
 
 
-            <Suspense callback={<div>加载中...</div>}>
-                <Outlet/>
-            </Suspense>
+            <div>
+                <Suspense fallback={<div>加载子页面中...</div>}>
+                    <Outlet /> {/* 这里会渲染 A、B、C 等子组件 */}
+                </Suspense>
+            </div>
         </div>
     );
 }

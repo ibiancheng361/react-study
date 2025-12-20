@@ -1,7 +1,8 @@
 
+import { lazy} from 'react';
+
 
 import TwoLayout from '@/layout/two';
-
 // Two.js
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';  // 使用 Outlet 而不是 Routes
@@ -18,5 +19,4 @@ function Two() {
     );
 }
 
-// export default Two;
 export default Two;
