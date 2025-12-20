@@ -6,12 +6,12 @@ import './app.scss'
 import { BrowserRouter, Routes, Route, Outlet, Link,NavLink } from 'react-router-dom';
 
 
-const About = lazy(()=>import('./pages/about'));
-const Home = lazy(()=>import('./pages/home'));
-const Concat = lazy(()=>import('./pages/concat'));
-const Two = lazy(()=>import('./pages/two'));
-const TodoList = lazy(()=>import('./pages/todolist'));
-const NotFound = lazy(()=>import('./pages/404'));
+const About = lazy(()=>import('../pages/about'));
+const Home = lazy(()=>import('../pages/home'));
+const Concat = lazy(()=>import('../pages/concat'));
+const Two = lazy(()=>import('../pages/two'));
+const TodoList = lazy(()=>import('../pages/todolist'));
+const NotFound = lazy(()=>import('../pages/404'));
 
 // 布局组件
 function Layout() {
