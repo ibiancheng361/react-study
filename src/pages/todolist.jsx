@@ -17,23 +17,11 @@ function TodoList() {
 
 
 
-  // 使用 useMemo 优化，避免每次渲染都重新计算
-  const taskItems = useMemo(() => 
-    taskList.map(item => (
-      <TodoItem 
-        key={item.id} 
-        item={item} 
-        onEditTask={handleEditTask} 
-        onCompleteTask={handleCompleteTask} 
-        onDeleteTask={handleDeleteTask} 
-      />
-    )), 
-    [taskList] // 依赖 taskList，只有它变化时才重新计算
-  )
 
 
 
-  function handleClick(){
+
+  const handleClick = () => {
     const task = taskRef.current?.value.trim();
     if (task.length==0){
       toast.warning('任务内容不可为空！');
@@ -59,17 +47,17 @@ function TodoList() {
     //   onDeleteTask={handleDeleteTask} />));
   };
 
-  function handleEditTask(task){
+  const handleEditTask = (task) => {
     setEditId(task.id);
     taskRef.current.value = task.task;
     taskRef.current.focus();
   };
 
-  function handleDeleteTask(task){
+  const handleDeleteTask = (task) => {
     setTaskList(prev => prev.filter(item => item.id !== task.id));
   };
 
-  function handleCompleteTask(task) {
+  const handleCompleteTask = (task) => {
     setTaskList(prev =>
       prev.map(item =>
         item.id === task.id ? { ...item, state: 1 } : item
@@ -77,6 +65,19 @@ function TodoList() {
     );
   };
 
+    // 使用 useMemo 优化，避免每次渲染都重新计算
+  const taskItems = useMemo(() => 
+    taskList.map(item => (
+      <TodoItem 
+        key={item.id} 
+        item={item} 
+        onEditTask={handleEditTask} 
+        onCompleteTask={handleCompleteTask} 
+        onDeleteTask={handleDeleteTask} 
+      />
+    )), 
+    [taskList] // 依赖 taskList，只有它变化时才重新计算
+  )
 
   /*
   <TodoList 
@@ -89,6 +90,10 @@ function TodoList() {
   return (
     <>
       <div className="page">
+        
+
+
+
         <div className='todolist-container'>
             <div className="todo-header-section"> 
                 <div className="task-num">任务序号</div>
