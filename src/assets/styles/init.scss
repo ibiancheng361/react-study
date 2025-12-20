@@ -1,0 +1,66 @@
+/* src/styles/globals.css */
+@import './reset.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* 自定义全局样式 */
+:root {
+  --primary: #3b82f6;
+  --secondary: #10b981;
+}
+  
+body {
+  @apply bg-gray-50 text-gray-900;
+}
+
+
+
+.page{
+  margin:0 auto;
+  padding:15px;
+  width:1000px;
+  background-color:#fff;
+
+}
+
+
+.Toastify__toast-icon {
+  width: 20px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 可选：微调垂直位置 */
+  transform: translateY(-1px); 
+}
+
+
+
+/**/
+.main{
+  margin: 0 auto;
+  width:1000px;
+}
+
+
+
+
+
+.menu{
+  padding:0 13px 7px 13px;
+  height:30px;
+  border-bottom:1px solid #ddd;
+  display:flex;
+  align-items: center;
+  .menu-item{
+    padding:2px 13px;
+    
+  }
+  a.active {
+    color: #2563eb;
+    background-color: #eff6ff;
+    border-bottom:2px solid #2563eb;
+  }
+}
+  

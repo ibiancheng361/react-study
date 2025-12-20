@@ -8,7 +8,7 @@ import {createBrowserRouter} from 'react-router-dom';
 
 
 
-const Layout = lazy(()=>import('@/components/Layout'));
+const AppLayout = lazy(()=>import('@/layout/app'));
 // const TwoLayout = lazy(()=>import('@/layout/two'));
 
 
@@ -16,17 +16,27 @@ const About = lazy(()=>import('@/pages/about'));
 const Home = lazy(()=>import('@/pages/home'));
 const Concat = lazy(()=>import('@/pages/concat'));
 const TodoList = lazy(()=>import('@/pages/todolist'));
+const Ucenter = lazy(()=>import('@/pages/ucenter'));
+const Login = lazy(()=>import('@/pages/login'));
+
 const NotFound = lazy(()=>import('@/pages/404'));
 
 
+import {oneRouter} from '@/router/modules/one';
 import {twoRouter} from '@/router/modules/two';
-
-console.log('hello owrld');
 
 const router = createBrowserRouter([
     {
+        path:'/ucenter',
+        element:<Ucenter/>
+    },
+    {
+        path:'/login',
+        element:<Login/>
+    },
+    {
         path:'/',
-        element:<Layout/>,
+        element:<AppLayout/>,
         children:[
             {
                 index:true,
@@ -40,6 +50,7 @@ const router = createBrowserRouter([
                 path:'concat',
                 element:<Concat/>
             },
+            oneRouter,
             twoRouter,
             {
                 path:'todolist',

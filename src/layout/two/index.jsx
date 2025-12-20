@@ -2,24 +2,25 @@
 import { Suspense  } from 'react';
 import {Outlet,NavLink,useNavigate  } from 'react-router-dom';
 
+import './style.scss';
+
 function Two(){
     const navigate = useNavigate();
     return (
-        <div>
-            <div><h2>二级路由</h2></div>
-            <div>
-                <button onClick={() => navigate('..')} className="back-btn">
-                返回上级
-                </button>
-            </div>
+        <div className="two-container">
             <div>
                 <nav className="menu">
-                    <NavLink className="menu-item" to="/two/a">page-A</NavLink> | 
-                    <NavLink className="menu-item" to="/two/b">page-B</NavLink> | 
-                    <NavLink className="menu-item" to="/two/c">page-C</NavLink>
+                    <NavLink className="menu-item" to="/two/a?id=1">组件参数</NavLink> | 
+                    <NavLink className="menu-item" to="/two/b?id=2">page-B</NavLink> | 
+                    <NavLink className="menu-item" to={{
+                        pathname:'/two/c',
+                        params:{
+                            id:3,
+                            age:10
+                        }
+                    }}>page-C</NavLink>
                 </nav>
             </div>
-
 
             <div>
                 <Suspense fallback={<div>加载子页面中...</div>}>
