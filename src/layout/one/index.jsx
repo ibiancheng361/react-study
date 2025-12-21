@@ -12,7 +12,7 @@ function One(){
         <div className="one-container">
             <div>
                 <nav className="menu">
-                    <NavLink className="menu-item" to="/one/a?id=1">组件参数</NavLink> | 
+                    <NavLink className="menu-item" to="/one/a?id=1">参数及插槽</NavLink> | 
                     <NavLink className="menu-item" to="/one/b?id=2">page-B</NavLink> | 
                     <NavLink className="menu-item" to={{
                         pathname:'/one/c',
