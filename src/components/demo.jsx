@@ -1,13 +1,14 @@
+import {React} from 'react'
 import {SlotProvider} from '@/components/utils'
+
 //组件v2版
 const Hello = (({msg,slots})=>{
-    console.log(slots.current)
     return (
         <div className='hello'>
             {slots.header && (
                 <div className="header-slot">{slots.header}</div>
             )}
-            {slots.default ? <div>{slots.default}</div> : <div>{msg}</div>}
+            {slots.default || msg ? (slots.default?<div>{slots.default}</div> : <div>{msg}</div>):null}
             {slots.footer && (
                 <div className="footer-slot">{slots.footer}</div>
             )}

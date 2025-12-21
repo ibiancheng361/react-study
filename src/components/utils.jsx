@@ -8,6 +8,7 @@ const SlotContent = createContext({});
 //插槽容器组件
 function SlotProvider({children,component:Component,...props}){
     const slotsRef = useRef({})
+    console.log(children)
     return (
         <SlotContent.Provider value={slotsRef.current}>
             {children}

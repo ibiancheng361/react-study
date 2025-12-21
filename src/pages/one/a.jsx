@@ -2,11 +2,9 @@ import {Slot,SlotProvider} from "@/components/utils";
 import Hello from "@/components/demo";
 
 
-function A(params){
-    console.log(params)
+function A(){
     return (
         <>
-            <div>one-a</div>
             <SlotProvider component={Hello} msg="hello world"/>
 
             <SlotProvider component={Hello} msg='ok~ok'>
