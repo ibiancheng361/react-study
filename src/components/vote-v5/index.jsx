@@ -50,10 +50,15 @@ const voteEventBus = new VoteEventBus();
 function VoteV5(){
     const [yesVotes,setYesVotes] = useState(0);
     const [noVotes,setNoVotes] = useState(0);
+    const [absVotes,setAbsVotes] = useState(0);
 
     useEffect(()=>{
         const handleVoteNo = ()=>{
             setNoVotes(prev=>++prev);
+        }
+
+        const handleVoteAbs = ()=>{
+            setAbsVotes(prev=>++prev);
         }
 
         const handleVoteYes = ()=>{
@@ -62,6 +67,7 @@ function VoteV5(){
 
         voteEventBus.on("vote-no",handleVoteNo);
         voteEventBus.on("vote-yes",handleVoteYes);
+        voteEventBus.on("vote-abstain",handleVoteAbs);
 
 
         /*
@@ -71,6 +77,7 @@ function VoteV5(){
         return ()=>{
             voteEventBus.off('vote-no',handleVoteNo);
             voteEventBus.off('vote-yes',handleVoteYes);
+            voteEventBus.off('vote-abstain',handleVoteAbs);
         }
     },[]);
 
@@ -81,19 +88,21 @@ function VoteV5(){
 
             <div className='vote-body'>
                 <div className='row'><h3>投票结果</h3></div>
-
                 <div className='row'>
                     <ul>
                         <li>赞成:{yesVotes}票</li>
                         <li>反对:{noVotes}票</li>
-                        <li>总计:{noVotes+yesVotes}票</li>
+                        <li>弃权:{absVotes}票</li>
+                        <li>总计:{noVotes+yesVotes+absVotes}票</li>
                     </ul>
                 </div>
             </div>
             <div className='flex'>
-                <VoteEmitter text='支持' type='yes' />
+                <VoteEmitter text='👍 支持' type='yes' />
                 <div className="ds05"></div>
-                <VoteEmitter text='反对' type='no' />
+                <VoteEmitter text='👎 反对' type='no' />
+                <div className="ds05"></div>
+                <VoteEmitter text='🤷 弃权' type='abstain' />
             </div>
         </div>
     );

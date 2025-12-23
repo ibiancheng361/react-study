@@ -40,8 +40,8 @@ function VoteDisplay({votes}){
             <div className='row'>
                 <ul>
                     <li>赞成:{votes.yes}票</li>
-                    <li>赞成:{votes.no}票</li>
-                    <li>赞成:{votes.abstain}票</li>
+                    <li>反对:{votes.no}票</li>
+                    <li>弃权:{votes.abstain}票</li>
                     <li>总计:{total}票</li>
                 </ul>
             </div>
@@ -98,11 +98,11 @@ function VoteChart({votes}){
 function VoteBtns({votes,onVote}){
     return (
         <div className='vote-footer'>
-            <Button variant="contained" size='small' onClick={()=>onVote('yes')}>👍 赞成~{votes.yes}</Button>
+            <Button variant="contained" size='small' onClick={()=>onVote('yes')}>👍 赞成</Button>
             <div className="ds05"></div>
-            <Button variant="contained" size='small' onClick={()=>onVote('no')}>👎 反对~{votes.no}</Button>
+            <Button variant="contained" size='small' onClick={()=>onVote('no')}>👎 反对</Button>
             <div className="ds05"></div>
-            <Button variant="contained" size='small' onClick={()=>onVote('abstain')}>🤷 弃权~{votes.abstain}</Button>
+            <Button variant="contained" size='small' onClick={()=>onVote('abstain')}>🤷 弃权</Button>
         </div>
     );
 }
