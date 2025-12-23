@@ -84,7 +84,7 @@ function VoteV5(){
 
     return (
         <div className='vote-section'>
-            <div className='vote-title'>v5:自定义事件-订阅与发布实现组件通讯</div>
+            <div className='vote-title'>v5. 自定义事件-订阅与发布实现组件通讯</div>
 
             <div className='vote-body'>
                 <div className='row'><h3>投票结果</h3></div>

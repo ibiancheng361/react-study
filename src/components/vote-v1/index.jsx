@@ -22,7 +22,7 @@ function VoteV1(){
 
     return (
         <div className='vote-section'>
-            <div className='vote-title'>v1:父子组件以props通讯</div>
+            <div className='vote-title'>v1. 父子组件以props通讯</div>
             <div className='vote-body'>
                 <div className='row'><h3>投票结果</h3></div>
                 <div className='row'>

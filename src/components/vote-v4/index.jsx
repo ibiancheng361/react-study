@@ -4,7 +4,7 @@ import {useState} from 'react'
 import { Button } from '@mui/material';
 
 
-function VoteV3({slots}){
+function VoteV4({slots}){
     const [yesVotes,setYesVotes] = useState(0);
     const [noVotes,setNoVotes] = useState(0);
     const handleYesClick = ()=>{
@@ -17,7 +17,7 @@ function VoteV3({slots}){
 
     return (
         <div className='vote-section'>
-            <div className='vote-title'>v1:父子组件以props通讯</div>
+            <div className='vote-title'>v4:父子组件以props通讯</div>
             <div className='row'>totle:{yesVotes+noVotes}</div>
             <div className='flex'>
                 <VoteButton text='支持' votes={yesVotes} onClick={handleYesClick} />
@@ -43,4 +43,4 @@ function VoteButton({text,votes,onClick}){
 }
 
 
-export {VoteV3}
+export {VoteV4}

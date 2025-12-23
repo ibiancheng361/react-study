@@ -46,7 +46,7 @@ function VoteV6({children,defaultvalue={}}){
     return (
         <div className='vote-section'>
             <VoteContext.Provider value={contextValue}>
-                <div className='vote-title'>v6:复合组件通讯</div>
+                <div className='vote-title'>v6. 复合组件通讯</div>
                 {children}
             </VoteContext.Provider>
         </div>

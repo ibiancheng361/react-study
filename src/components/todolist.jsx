@@ -48,16 +48,4 @@ function TodoItem(params){
         </div>
     )
 }
-/*
- <div className="task-row" > 
-            <div className='task-detail'>
-
-            </div>
-            <div className='task-action'>
-            <button type="button" className="add-btn" onClick={handleClick}>编辑</button>
-            <button type="button" className="add-btn" onClick={handleUpdateTaskState}>完成</button>
-            <button type="button" className="add-btn" onClick={handleUpdateTaskState}>删除</button>
-            </div>
-        </div>
-*/
 export {TodoList,TodoItem}

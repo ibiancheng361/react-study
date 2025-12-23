@@ -21,7 +21,7 @@ function VoteV3({slots}){
 
     return (
         <div className='vote-section'>
-            <div className='vote-title'>v3:状态提升通讯</div>
+            <div className='vote-title'>v3. 状态提升通讯</div>
             <VoteDisplay votes={votes}/>
             <VoteBtns votes={votes} onVote={handleVote}/>
             <VoteChart votes={votes}/>
