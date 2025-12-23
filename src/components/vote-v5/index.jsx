@@ -72,7 +72,7 @@ function VoteV5(){
 
         /*
             一定要取消订阅,不取消会导致严重问题
-            组件卸载后还在内存中.
+            组件卸载后还在内存中1.
         */
         return ()=>{
             voteEventBus.off('vote-no',handleVoteNo);
