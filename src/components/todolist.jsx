@@ -1,4 +1,4 @@
-
+import { Button } from '@mui/material';
 
 function TodoList({taskList,...params}){
     const todoItems = taskList.map(item=><TodoItem key={item.id} item={item} {...params}/>);
@@ -39,9 +39,11 @@ function TodoItem(params){
             <div className='task-detail'>{item.task}</div>
             <div className={`task-state state${item.state}`}>{item.state==0?'进行中':'已完成'}</div>
             <div className='task-action'>
-            <button type="button" className="add-btn" disabled={item.state==1} onClick={handleEditTask}>编辑</button>
-            <button type="button" className="add-btn" disabled={item.state==1} onClick={handleCompleteTask}>完成</button>
-            <button type="button" className="add-btn" onClick={handleDeleteTask}>删除</button>
+                <Button variant="contained" size='small' disabled={item.state==1} onClick={handleEditTask}>编辑</Button>
+                <div className="ds05"></div>
+                <Button variant="contained" size='small' disabled={item.state==1} onClick={handleCompleteTask}>完成</Button>
+                <div className="ds05"></div>
+                <Button variant="contained" color="secondary" size='small' onClick={handleDeleteTask}>删除</Button>
             </div>
         </div>
     )

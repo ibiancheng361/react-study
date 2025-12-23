@@ -1,10 +1,14 @@
 import { useState,useRef ,useMemo  } from 'react'
-import '@/assets/todolist.scss'
+
+import { Button } from '@mui/material';
 
 //import Hello from './components/demo'
 import {TodoItem} from '@/components/todolist'
 // App11.js
 import { toast,ToastContainer } from 'react-toastify';
+
+
+import '@/assets/todolist.scss'
 
 // import {uuid} from './common/utils';
 function TodoList() {
@@ -89,11 +93,7 @@ function TodoList() {
   */
   return (
     <>
-      <div className="page">
-        
-
-
-
+      <div className="main">
         <div className='todolist-container'>
             <div className="todo-header-section"> 
                 <div className="task-num">任务序号</div>
@@ -118,13 +118,11 @@ function TodoList() {
               />  
             </div>
             <div className="task-action">
-              <button 
-                type="button" 
-                className="add-btn" 
+              <Button variant="contained" size='small'
                 onClick={handleClick}
               >
                 {editId > 0 ? '更新' : '添加'}
-              </button>
+              </Button>
 
             </div>
           </div>
