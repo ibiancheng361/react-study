@@ -1,13 +1,12 @@
-import { useParams,useSearchParams  } from 'react-router-dom';
+import {VoteV1} from '@/components/vote-v1'
+import {VoteV3} from '@/components/vote-v3'
 function C(){
-    const [searchParams,setSearchParams]= useSearchParams ();
-    const id = searchParams.get('id');
-    console.log(id);
-    const parmas = useParams();
-    console.log(parmas);
     return (
         <>
-            <div>two-c</div>
+            <VoteV1/>
+            <hr />
+            <VoteV3/>
+            <hr />
         </>
     );
 }

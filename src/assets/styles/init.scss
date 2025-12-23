@@ -66,12 +66,50 @@ body {
   
 
 
+
+hr{
+  margin:10px 0;
+  border:none;
+  border-top:1px solid #ddd;
+}
+
+
+.ds05{margin:0 5px;}
+.ds10{margin:0 10px;}
+
+
+.flex{display:flex;}
+.flex-both-center{
+  display:flex;
+  align-items: center;
+  justify-content:center;
+}
+
+
+
+
 .row{
-  border:1px solid red;
+  margin:10px 0;
 }
 
 
 .hello{
   margin:13px 0;
   border:1px solid #ddd;
+}
+
+
+.vote-section{
+  margin:10px 0;
+
+  .vote-title{
+    font-size:18px;
+    font-weight:bold;
+  }
+  
+
+  .vote-footer{
+    margin:7px 0;
+    display:flex;
+  }
 }
