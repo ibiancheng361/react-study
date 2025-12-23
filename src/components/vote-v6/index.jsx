@@ -4,7 +4,7 @@ import {useState} from 'react'
 import { Button } from '@mui/material';
 
 
-function VoteV3({slots}){
+function VoteV6({slots}){
     const [yesVotes,setYesVotes] = useState(0);
     const [noVotes,setNoVotes] = useState(0);
     const handleYesClick = ()=>{
@@ -43,4 +43,4 @@ function VoteButton({text,votes,onClick}){
 }
 
 
-export {VoteV3}
+export {VoteV6}
